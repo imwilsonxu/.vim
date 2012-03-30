@@ -1,0 +1,55 @@
+# http://daringfireball.net/projects/markdown/syntax
+
+# Headline
+snippet h1
+	# ${1:h1}
+snippet h2
+	## ${1:h2}
+snippet h3
+	### ${1:h3}
+snippet h4
+	#### ${1:h4}
+snippet h5
+	##### ${1:h5}
+snippet h6
+	###### ${1:h6}
+# Blockquotes
+snippet >
+	> ${1:balabala}
+snippet >>
+	>> ${1:balabala}
+# List
+snippet ul normal
+	${1:List title}
+
+	- ${2:item1}
+	- ${3:item2}
+	- ${4:item3}
+snippet ul number
+	${1:List title}
+
+	1. ${1:item1}
+	2. ${2:item2}
+	3. ${3:item3}
+# Code
+snippet c
+	`${1:coding}`
+# Separator
+snippet ---
+	- - -
+# Link
+snippet a
+	[${1:text}](http://${2:url})
+snippet <
+	<${1:url}>
+# Italic
+snippet _
+	_${1:single underscores}_
+# Bold
+snippet **
+	**${1:double asterisks}**
+snippet __
+	__${1:double underscores}__
+# Image
+snippet img
+	[${1:alt text}](http://${2:url_of_page})

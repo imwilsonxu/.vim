@@ -1,0 +1,49 @@
+snippet init
+	{
+		"name": "${1}",
+		"version": "0.1",
+	}
+snippet description
+	"description": "${1}",
+snippet default_locale
+	"default_locale": "en",
+snippet icon
+	"icons": {
+		"16": "${1}",
+		"48": "${2}",
+		"128": "${3}"
+	}
+snippet content_scripts
+	"content_scripts": [
+		{
+			"matches": ["${1}"],
+			"css": ["${2}"],
+			"js": ["${3}"],
+			"permissions": [ "${4}" ],
+			"run_at": "${5}"
+		}
+	],
+snippet browser_action
+	"browser_action": {
+		"default_icon": "${1}",
+		"default_title": "${2}",
+		"default_popup": "${3}"
+	},
+snippet page_action
+	"page_action": {
+		"default_icon": "${1}",
+		"default_title": "${2}",
+		"default_popup": "${3}"
+	},
+snippet background_page
+	"background_page": "background.html",
+snippet options_page
+	"options_page": "options.html",
+snippet update_url
+	"update_url": "${1}",
+snippet permissions
+	"permissions": [
+		"http://*/*",
+		"tabs",
+		"bookmarks"
+	],
