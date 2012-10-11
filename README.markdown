@@ -2,6 +2,13 @@
 
 I've been a happy Vimer since 2009, playing and tweaking.
 
+## Install
+
+    git clone https://github.com/imwilsonxu/.vim
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    vim
+    :BundleIntall
+
 ## Plugins
 
 ### Decho
