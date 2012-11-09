@@ -1,36 +1,31 @@
-# My Vim Environment
+# .vim
 
-I've been a happy Vimer since 2009, playing and tweaking.
+I use Vim since 2009, it rocks!
 
 ## Install
 
+    # Goto Home.
+    cd
+    # Setup .vim
     git clone https://github.com/imwilsonxu/.vim
+    # Get .vimrc
+    wget https://raw.github.com/imwilsonxu/.dotfiles/master/.vimrc
+    # Setup vundle
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+    # Open Vim and Install plugins.
     vim
     :BundleIntall
 
 ## Plugins
 
-### Decho
-
-Vim script internal debugger (output in separate window, tab, or remote vim)
-
-### AutoComplPop
-
-Automatically opens popup menu for completions
-
-### mru.vim
-
-Plugin to manage Most Recently Used (MRU) files
-
-### ReloadScript
-
-Reload a VIM script during script development.
-
-## Surround
-
-surround.vim: quoting/parenthesizing made simple
-
-### Matchit
-
-The matchit.vim script allows you to configure % to match more than just single characters.
+- vim-ruby/vim-ruby
+- Kris2k/matchit
+- tpope/vim-surround
+- chrisbra/SudoEdit.vim
+- scrooloose/nerdcommenter
+- scrooloose/nerdtree
+- imwilsonxu/snipmate.vim
+- AutoComplPop
+- mru.vim
+- Decho
+- ReloadScript
