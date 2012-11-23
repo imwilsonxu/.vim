@@ -9,3 +9,7 @@ SuperTab
 vim-ruby
 vim-surround
 vundle
+syntastic
+taglist.vim
+undotree
+vim-fugitive
