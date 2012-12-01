@@ -12,26 +12,55 @@ filetype off                   " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" let Vundle manage Vundle
-" required!
+" Bundles
 Bundle 'gmarik/vundle'
 
-" My Bundles here:
+" Windows
 "
-" original repos on github
-Bundle 'vim-ruby/vim-ruby'
+Bundle 'scrooloose/nerdtree'
+let NERDTreeIgnore=['\.pyc$']
+let NERDTreeShowBookmarks=1
+let NERDTreeChDirMode=2
+autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+Bundle 'vim-scripts/taglist.vim'
+let Tlist_Enable_Fold_Column = 0
+let Tlist_Compact_Format = 1
+let Tlist_File_Fold_Auto_Close = 1
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Use_Right_Window = 1
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Show_One_File = 1
+autocmd vimenter * if !argc() | Tlist | endif
+
+Bundle 'vim-scripts/mru.vim'
+let MRU_Auto_Close = 0
+let MRU_Window_Height = 5
+autocmd vimenter * if !argc() | MRU | endif
+
+" General Editing
+"
+Bundle 'chrisbra/SudoEdit.vim'
+Bundle 'vim-scripts/AutoComplPop'
 Bundle 'Kris2k/matchit'
 Bundle 'tpope/vim-surround'
-Bundle 'chrisbra/SudoEdit.vim'
-Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-repeat'
+
+" Coding
+"
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/syntastic'
 Bundle 'mbbill/undotree'
-Bundle 'tpope/vim-fugitive'
-Bundle 'vim-scripts/taglist.vim'
-" Productivity
-Bundle 'AutoComplPop'
-Bundle 'mru.vim'
+Bundle 'mattn/zencoding-vim'
+
+" Dev Vim Scripts
+"
+Bundle 'vim-scripts/Decho'
+Bundle 'xolox/vim-reload'
+
 " Commented out after install, still figuring... 
 " Bundle 'imwilsonxu/snipmate.vim'
 
@@ -205,6 +234,10 @@ nnoremap ; :
 vnoremap ; :
 nnoremap gh ^
 nnoremap gl $
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
 inoremap <c-l> <esc>la
 inoremap <c-h> <esc>i
 
@@ -248,24 +281,9 @@ nnoremap <F4> :!gedit %<cr>
 
 colorscheme Tomorrow-Night
 
-let g:user_zen_leader_key = '<c-y>'
-
 " format json.
 nnoremap <f5> :%!python -m json.tool<CR>:w<CR>
 
-" Taglist
-let Tlist_Enable_Fold_Column = 0
-let Tlist_Compact_Format = 1
-let Tlist_File_Fold_Auto_Close = 1
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Use_Right_Window = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Show_One_File = 1
-autocmd vimenter * if !argc() | Tlist | endif
 
-" Nerdtree
-let NERDTreeIgnore=['\.pyc$']
-let NERDTreeShowBookmarks=1
-let NERDTreeChDirMode=2
-autocmd vimenter * if !argc() | NERDTree | endif
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" SudoEdit
+nnoremap <c-s> :SudoEdit<cr>

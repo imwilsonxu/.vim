@@ -13,3 +13,6 @@ syntastic
 taglist.vim
 undotree
 vim-fugitive
+zencoding-vim
+vim-reload
+vim-repeat
