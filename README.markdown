@@ -1,6 +1,6 @@
 # .vim
 
-I use Vim since 2009, it rocks!
+A Vimer since 2009.
 
 ## Install
 
@@ -18,14 +18,35 @@ I use Vim since 2009, it rocks!
 
 ## Plugins
 
-- vim-ruby/vim-ruby
+### Manage Plugins
+
+- gmarik/vundle
+
+###  Windows
+
+- scrooloose/nerdtree
+- vim-scripts/taglist.vim
+- vim-scripts/mru.vim
+
+###  General Editing
+
+- chrisbra/SudoEdit.vim
+- vim-scripts/AutoComplPop
 - Kris2k/matchit
 - tpope/vim-surround
-- chrisbra/SudoEdit.vim
+- tpope/vim-repeat
+
+###  Coding
+
 - scrooloose/nerdcommenter
-- scrooloose/nerdtree
+- vim-ruby/vim-ruby
+- tpope/vim-fugitive
+- scrooloose/syntastic
+- mbbill/undotree
+- mattn/zencoding-vim
 - imwilsonxu/snipmate.vim
-- AutoComplPop
-- mru.vim
-- Decho
-- ReloadScript
+
+###  Dev Vim Scripts
+
+- vim-scripts/Decho
+- xolox/vim-reload
