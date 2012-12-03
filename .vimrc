@@ -3,6 +3,14 @@
 " Yup, it's 21 century now.
 set nocompatible
 
+" Save by pressing ESC twice.
+" Put them here or error "no map found" reported.
+" In terminal, <c-s> sends the signal SIGSTOP, which was caught by system
+" before vim. 
+" Workaround:
+" echo "stty -ixon" >> ~/.bashrc
+map <silent> <Esc><Esc> :noh<cr>:w<CR>
+
 " Trigger magic in ~/.vim/bundle
 call pathogen#infect()
 
@@ -42,6 +50,9 @@ autocmd vimenter * if !argc() | MRU | endif
 " General Editing
 "
 Bundle 'chrisbra/SudoEdit.vim'
+" Save as root ctrl+s
+map <silent> <C-s> :SudoWrite<CR>
+
 Bundle 'vim-scripts/AutoComplPop'
 Bundle 'Kris2k/matchit'
 Bundle 'tpope/vim-surround'
@@ -131,7 +142,7 @@ set incsearch
 set ignorecase
 set smartcase
 " Turn off highlight, save is a bonus.
-noremap \ :noh<cr>:w<cr><esc>
+"noremap \ :noh<cr>:w<cr><esc>
 
 " Swap and Backup
 "
@@ -258,7 +269,8 @@ map Q gq
 " autocmd BufWritePost .vimrc source $MYVIMRC
 
 " No Help, please
-map <F1> <nop>
+" Does not work, change system wide shortcut instead.
+"map <F1> <nop>
 
 " Press Shift+P while in visual mode to replace the selection without
 " overwriting the default register
@@ -277,13 +289,7 @@ nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 
 set fileencodings=ucs-bom,utf-8,euc-cn,cp936,gb18030,latin1
 
-nnoremap <F4> :!gedit %<cr>
-
 colorscheme Tomorrow-Night
 
 " format json.
 nnoremap <f5> :%!python -m json.tool<CR>:w<CR>
-
-
-" SudoEdit
-nnoremap <c-s> :SudoEdit<cr>
