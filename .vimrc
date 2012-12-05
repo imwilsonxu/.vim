@@ -145,8 +145,6 @@ set incsearch
 " smartcase need to turn on ignorecase
 set ignorecase
 set smartcase
-" Turn off highlight, save is a bonus.
-"noremap \ :noh<cr>:w<cr><esc>
 
 " Swap and Backup
 "
@@ -159,6 +157,7 @@ set nowritebackup
 
 " Editing
 "
+nmap <leader>j `. 
 " Make backspace a more flexible
 set backspace=indent,eol,start
 " Ignore files
@@ -184,6 +183,8 @@ set wildmode=list:longest
 " Easier way to indent codes left/right.
 vmap . >
 vmap , <
+nmap <tab> >>
+nmap <s-tab> <<
 
 " Coding: php
 "
@@ -206,7 +207,6 @@ autocmd FileType javascript nnoremap <F9> :g/^\s*\/\//d<cr>:%s/\v\s+/%20/g<cr>:%
 
 " Coding: ruby
 "
-" Save and ruby current file.
 "autocmd FileType ruby map <F2> :w\|!ruby %<cr>
 autocmd FileType ruby map <F2> :w\|!ruby %<cr>
 
@@ -247,10 +247,8 @@ nnoremap r( vi(p :call setreg('"', getreg('0')) <CR>
 nnoremap r{ vi{p :call setreg('"', getreg('0')) <CR>
 " Paste from last yank/cut
 nnoremap gp "0p
-" Save my little fingers.
+" Save my fingers.
 nnoremap qq :q<cr>
-nnoremap zz ZZ
-inoremap zz <esc>ZZ
 nnoremap ; :
 vnoremap ; :
 nnoremap gh ^
@@ -265,8 +263,10 @@ inoremap <c-l> <esc>la
 inoremap <c-h> <esc>i
 " <Esc> is too far away from my fingers.
 imap jj <esc>
-" Save by pressing a twice.
-map aa :noh<cr>:w<CR>
+"norema \ :noh<cr>:w<cr><esc>
+" Easy saving.
+imap zz <esc>:w<CR>
+nmap zz :w<CR>
 
 """ http://stackoverflow.com/questions/235439/vim-80-column-layout-concerns/235970#235970
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
