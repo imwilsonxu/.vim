@@ -1,18 +1,12 @@
 " Treasures in Vim
 
-" Yup, it's 21 century now.
+" Com'on, it's 21 century now.
 set nocompatible
-
-" Save by pressing ESC twice.
-" Put them here or error "no map found" reported.
-" In terminal, <c-s> sends the signal SIGSTOP, which was caught by system
-" before vim. 
-" Workaround:
-" echo "stty -ixon" >> ~/.bashrc
-map <silent> <Esc><Esc> :noh<cr>:w<CR>
 
 " Trigger magic in ~/.vim/bundle
 call pathogen#infect()
+
+" Vimundle ===================================================
 
 " Vimundle via https://github.com/gmarik/vundle
 filetype off                   " required!
@@ -40,18 +34,21 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Show_One_File = 1
-autocmd vimenter * if !argc() | Tlist | endif
+"autocmd vimenter * if !argc() | Tlist | endif
 
 Bundle 'vim-scripts/mru.vim'
 let MRU_Auto_Close = 0
 let MRU_Window_Height = 5
-autocmd vimenter * if !argc() | MRU | endif
+"autocmd vimenter * if !argc() | MRU | endif
 
 " General Editing
 "
 Bundle 'chrisbra/SudoEdit.vim'
-" Save as root ctrl+s
+" In terminal, <c-s> sends the signal SIGSTOP, which was caught by system
+" before vim. 
+" Workaround: echo "stty -ixon" >> ~/.bashrc
 map <silent> <C-s> :SudoWrite<CR>
+cmap w!! %!sudo tee > /dev/null %
 
 Bundle 'vim-scripts/AutoComplPop'
 Bundle 'Kris2k/matchit'
@@ -64,7 +61,11 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-fugitive'
 Bundle 'scrooloose/syntastic'
+
+" https://github.com/mbbill/undotree
 Bundle 'mbbill/undotree'
+nnoremap <F5> :UndotreeToggle<cr>
+
 Bundle 'mattn/zencoding-vim'
 
 " Dev Vim Scripts
@@ -75,12 +76,12 @@ Bundle 'xolox/vim-reload'
 " Commented out after install, still figuring... 
 " Bundle 'imwilsonxu/snipmate.vim'
 
+" End Vimundle ================================================
+
 filetype plugin indent on     " required!
 
 " Space is bigger that ','
 let mapleader=" "
-
-set foldlevel=20
 
 " Tab
 "
@@ -95,6 +96,9 @@ set cinwords=if,elif,else,for,while,with,try,except,finally,def,class
 
 " Display
 "
+" Show cursorline to indicate insert mode.
+" See also guicursor
+autocmd InsertEnter,InsertLeave * set cul!
 " Wrap is kind of werid =.=
 set nowrap
 " 132*43 looks better 80*43
@@ -177,8 +181,11 @@ nnoremap <M-left> :e#<cr>
 " more useful tab completion
 set wildmenu
 set wildmode=list:longest
+" Easier way to indent codes left/right.
+vmap . >
+vmap , <
 
-" php
+" Coding: php
 "
 " Run in cli
 "autocmd FileType php nnoremap <F9> :!/opt/lampp/bin/php %<cr>
@@ -187,21 +194,25 @@ set wildmode=list:longest
 " Phpunit
 "autocmd FileType php nnoremap <c-t> :!phpunit %<cr>
 
-" python
+" Coding: python
 autocmd FileType python map <F2> :w\|!python %<cr>
 autocmd FileType python map <F6> :!nosetests -s ..<cr>
 "autocmd FileType python set smartindent
 
-" javascript
+" Coding: javascript
 "
 " Format bookmarklet codes.
 autocmd FileType javascript nnoremap <F9> :g/^\s*\/\//d<cr>:%s/\v\s+/%20/g<cr>:%s/\n//g<cr>:%s/"/\&quot;/g<cr>:%s/\(.*\)/<a href="javascript:\1">test<\/a>/g<cr>:noh<cr>
 
-" ruby
+" Coding: ruby
 "
 " Save and ruby current file.
 "autocmd FileType ruby map <F2> :w\|!ruby %<cr>
 autocmd FileType ruby map <F2> :w\|!ruby %<cr>
+
+" Coding: json
+" format json.
+nnoremap <f5> :%!python -m json.tool<CR>:w<CR>
 
 " typos
 "
@@ -240,19 +251,22 @@ nnoremap gp "0p
 nnoremap qq :q<cr>
 nnoremap zz ZZ
 inoremap zz <esc>ZZ
-nnoremap q; q:
 nnoremap ; :
 vnoremap ; :
 nnoremap gh ^
 nnoremap gl $
+" Move from window to window.
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
+" Move cursor in insert mode.
 inoremap <c-l> <esc>la
 inoremap <c-h> <esc>i
-
-cmap w!! %!sudo tee > /dev/null %
+" <Esc> is too far away from my fingers.
+imap jj <esc>
+" Save by pressing a twice.
+map aa :noh<cr>:w<CR>
 
 """ http://stackoverflow.com/questions/235439/vim-80-column-layout-concerns/235970#235970
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -263,23 +277,15 @@ cmap w!! %!sudo tee > /dev/null %
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
-" Reload .vimrc, useful while coding vim scripts.
-"nnoremap <F5> :so $MYVIMRC<cr>
 " Automatically load .vimrc source when saved
-" autocmd BufWritePost .vimrc source $MYVIMRC
-
-" No Help, please
-" Does not work, change system wide shortcut instead.
-"map <F1> <nop>
+autocmd BufWritePost .vimrc source $MYVIMRC
 
 " Press Shift+P while in visual mode to replace the selection without
 " overwriting the default register
 vmap P p :call setreg('"', getreg('0')) <CR>
 
 " Local config
-if filereadable(".vimrc.local")
-    source .vimrc.local
-endif
+if filereadable(".vimrc.local") | source .vimrc.Local |  endif
 
 set numberwidth=5
 
@@ -290,6 +296,3 @@ nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 set fileencodings=ucs-bom,utf-8,euc-cn,cp936,gb18030,latin1
 
 colorscheme Tomorrow-Night
-
-" format json.
-nnoremap <f5> :%!python -m json.tool<CR>:w<CR>
