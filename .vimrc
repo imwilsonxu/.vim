@@ -42,7 +42,7 @@ let MRU_Window_Height = 5
 "autocmd vimenter * if !argc() | MRU | endif
 
 " General Editing
-"
+
 Bundle 'chrisbra/SudoEdit.vim'
 " In terminal, <c-s> sends the signal SIGSTOP, which was caught by system
 " before vim. 
@@ -74,8 +74,17 @@ Bundle 'vim-scripts/Decho'
 Bundle 'xolox/vim-reload'
 
 " Commented out after install, still figuring... 
-" Bundle 'imwilsonxu/snipmate.vim'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/snipmate-snippets"
+"Bundle "garbas/vim-snipmate"
+Bundle 'imwilsonxu/vim-snipmate'
 
+Bundle 'Jinja'
+Bundle 'TaskList.vim'
+"Bundle 'fholgado/minibufexpl.vim'
+Bundle 'pydoc.vim'
+"Bundle 'supertab'
 " End Vimundle ================================================
 
 filetype plugin indent on     " required!
@@ -156,6 +165,11 @@ set nowritebackup
 "set updatecount=100
 
 " Editing
+"
+" Copy to X CLIPBOARD
+map <leader>cp :w !xsel -i -p<CR>
+" Paste from X CLIPBOARD
+map <leader>pp :r!xsel -p<CR>
 "
 nmap <leader>j `. 
 " Make backspace a more flexible
@@ -276,9 +290,6 @@ nmap zz :w<CR>
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
-
-" Automatically load .vimrc source when saved
-autocmd BufWritePost .vimrc source $MYVIMRC
 
 " Press Shift+P while in visual mode to replace the selection without
 " overwriting the default register
