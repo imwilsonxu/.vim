@@ -8,8 +8,8 @@ A Vimer since 2009.
     cd
     # Setup .vim
     git clone https://github.com/imwilsonxu/.vim
-    # Get .vimrc
-    wget https://raw.github.com/imwilsonxu/.dotfiles/master/.vimrc
+    # link .vimrc to home.
+    ln -s ~/.vim/.vimrc ~/.vimrc
     # Setup vundle
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
     # Open Vim and Install plugins.
