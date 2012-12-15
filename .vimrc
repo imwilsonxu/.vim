@@ -76,9 +76,8 @@ Bundle 'xolox/vim-reload'
 " Commented out after install, still figuring... 
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
-"Bundle "garbas/vim-snipmate"
-Bundle 'imwilsonxu/vim-snipmate'
+Bundle "garbas/vim-snipmate"
+Bundle "imwilsonxu/snipmate-snippets"
 
 Bundle 'Jinja'
 Bundle 'TaskList.vim'
@@ -166,6 +165,9 @@ set nowritebackup
 
 " Editing
 "
+vmap . >
+vmap , <
+"
 " Copy to X CLIPBOARD
 map <leader>cp :w !xsel -i -p<CR>
 " Paste from X CLIPBOARD
@@ -195,10 +197,6 @@ nnoremap <M-left> :e#<cr>
 set wildmenu
 set wildmode=list:longest
 " Easier way to indent codes left/right.
-vmap . >
-vmap , <
-nmap <tab> >>
-nmap <s-tab> <<
 
 " Coding: php
 "
