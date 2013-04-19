@@ -39,6 +39,8 @@ let Tlist_Show_One_File = 1
 Bundle 'vim-scripts/mru.vim'
 let MRU_Auto_Close = 0
 let MRU_Window_Height = 5
+let MRU_Max_Entries = 1000 
+let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
 "autocmd vimenter * if !argc() | MRU | endif
 
 " General Editing
@@ -60,11 +62,12 @@ Bundle 'tpope/vim-repeat'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-fugitive'
+" Need pep8 and flake8 to check python syntax.
 Bundle 'scrooloose/syntastic'
 
 " https://github.com/mbbill/undotree
-Bundle 'mbbill/undotree'
-nnoremap <F5> :UndotreeToggle<cr>
+"Bundle 'mbbill/undotree'
+"nnoremap <F5> :UndotreeToggle<cr>
 
 Bundle 'mattn/zencoding-vim'
 
@@ -84,6 +87,9 @@ Bundle 'TaskList.vim'
 "Bundle 'fholgado/minibufexpl.vim'
 Bundle 'pydoc.vim'
 "Bundle 'supertab'
+
+Bundle 'vim-coffee-script'
+
 " End Vimundle ================================================
 
 filetype plugin indent on     " required!
@@ -169,9 +175,9 @@ vmap . >
 vmap , <
 "
 " Copy to X CLIPBOARD
-map <leader>cp :w !xsel -i -p<CR>
+map <silent> <leader>cp :w !xsel -i -p<CR>
 " Paste from X CLIPBOARD
-map <leader>pp :r!xsel -p<CR>
+map <silent> <leader>pp :r!xsel -p<CR>
 "
 nmap <leader>j `. 
 " Make backspace a more flexible
@@ -188,6 +194,7 @@ inoremap "" ""<esc>i
 inoremap '' ''<esc>i
 inoremap %% %%<esc>i
 inoremap `` ``<esc>i
+inoremap ** **<esc>i
 inoremap \|\| \|\|<esc>i
 " but for paste? here is the fix.
 nnoremap <F3> :set paste!<Bar>set paste?<cr>
@@ -196,7 +203,8 @@ nnoremap <M-left> :e#<cr>
 " more useful tab completion
 set wildmenu
 set wildmode=list:longest
-" Easier way to indent codes left/right.
+" Save more command history.
+set history=1000
 
 " Coding: php
 "
@@ -212,6 +220,11 @@ autocmd FileType python map <F2> :w\|!python %<cr>
 autocmd FileType python map <F6> :!nosetests -s ..<cr>
 "autocmd FileType python set smartindent
 
+" Coding: markdown
+"
+autocmd FileType markdown map <F5> :!sundown % > /tmp/md.html<cr>
+au BufRead,BufNewFile *.md set filetype=markdown
+
 " Coding: javascript
 "
 " Format bookmarklet codes.
@@ -224,7 +237,7 @@ autocmd FileType ruby map <F2> :w\|!ruby %<cr>
 
 " Coding: json
 " format json.
-nnoremap <f5> :%!python -m json.tool<CR>:w<CR>
+"nnoremap <f5> :%!python -m json.tool<CR>:w<CR>
 
 " typos
 "
@@ -239,6 +252,9 @@ ab itme item
 ab lenght length
 ab heigth height
 ab wsig wsgi
+ab compnay company
+ab improt import
+ab cloen clone
 
 " My favorites
 "
@@ -261,6 +277,7 @@ nnoremap r{ vi{p :call setreg('"', getreg('0')) <CR>
 nnoremap gp "0p
 " Save my fingers.
 nnoremap qq :q<cr>
+nnoremap qaa :qa!<cr>
 nnoremap ; :
 vnoremap ; :
 nnoremap gh ^
@@ -274,11 +291,13 @@ nnoremap <c-k> <c-w>k
 inoremap <c-l> <esc>la
 inoremap <c-h> <esc>i
 " <Esc> is too far away from my fingers.
-imap jj <esc>
+"imap jj <esc>
+nmap ` <esc>:noh<cr>:w<cr>
+nmap \ <esc>:noh<cr>:w<cr>
 "norema \ :noh<cr>:w<cr><esc>
 " Easy saving.
-imap zz <esc>:w<CR>
-nmap zz :w<CR>
+imap zz <esc>ZZ
+nmap zz ZZ
 
 """ http://stackoverflow.com/questions/235439/vim-80-column-layout-concerns/235970#235970
 "highlight OverLength ctermbg=red ctermfg=white guibg=#592929
@@ -305,3 +324,17 @@ nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 set fileencodings=ucs-bom,utf-8,euc-cn,cp936,gb18030,latin1
 
 colorscheme Tomorrow-Night
+
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd FileType python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
+autocmd FileType html map <leader>d <esc>ma%d'a
+
+" Delete what matched last search
+nnoremap <leader>d :%s///g
