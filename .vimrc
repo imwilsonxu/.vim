@@ -50,7 +50,6 @@ Bundle 'chrisbra/SudoEdit.vim'
 " before vim. 
 " Workaround: echo "stty -ixon" >> ~/.bashrc
 map <silent> <C-s> :SudoWrite<CR>
-cmap w!! %!sudo tee > /dev/null %
 
 Bundle 'vim-scripts/AutoComplPop'
 Bundle 'Kris2k/matchit'
@@ -70,6 +69,8 @@ Bundle 'scrooloose/syntastic'
 "nnoremap <F5> :UndotreeToggle<cr>
 
 Bundle 'mattn/zencoding-vim'
+
+Bundle 'dbsr/vimfox'
 
 " Dev Vim Scripts
 "
@@ -138,6 +139,7 @@ set statusline=%<%04n\ %t%(\ %m%r%y[%{&ff}][%{&fenc}]\ \ %{mode()}%)\ %a%=\ col\
 highlight PmenuSel ctermbg=lightgreen gui=bold
 " Trim trailing spaces while formating
 "nnoremap <silent> gg=G gg=G:%s/\s\+$//g<cr>``
+set nofoldenable
 
 " Navigation
 "
@@ -196,8 +198,7 @@ inoremap %% %%<esc>i
 inoremap `` ``<esc>i
 inoremap ** **<esc>i
 inoremap \|\| \|\|<esc>i
-" but for paste? here is the fix.
-nnoremap <F3> :set paste!<Bar>set paste?<cr>
+set pastetoggle=<F3>
 " Return to last file using alt + left-arrow, mimic eclipse.
 nnoremap <M-left> :e#<cr>
 " more useful tab completion
