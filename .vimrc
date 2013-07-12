@@ -6,61 +6,123 @@ set nocompatible
 " Trigger magic in ~/.vim/bundle
 call pathogen#infect()
 
-" Vimundle ===================================================
+" Vundle ===================================================
 
-" Vimundle via https://github.com/gmarik/vundle
+" Vundle via https://github.com/gmarik/vundle
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " Bundles
-Bundle 'gmarik/vundle'
+Bundle "gmarik/vundle"
 
-" Windows
+" Just for fun
 "
+"Bundle 'uguu-org/vim-matrix-screensaver'
+
+" Play with shell inside Vim. 
+Bundle "acx0/Conque-Shell"
+
+" Colorschema
+Bundle "flazz/vim-colorschemes"
+" Make gVim-only color schema looks pretty in console.
+Bundle "CSApprox"
+"let g:solarized_termcolors=256
+"colorscheme solarized
+colorscheme desert256
+
+Bundle 'delimitMate.vim'
+
+" Better status line
+Bundle 'Lokaltog/vim-powerline'
+set laststatus=2
+set encoding=utf-8
+" Play nice with command line.
+set t_Co=256
+let g:Powerline_colorscheme = "solarized256"
+
+" NERDTree
 Bundle 'scrooloose/nerdtree'
 let NERDTreeIgnore=['\.pyc$']
 let NERDTreeShowBookmarks=1
 let NERDTreeChDirMode=2
-autocmd vimenter * if !argc() | NERDTree | endif
+"map <F2> :NERDTreeToggle<CR>
+" Auto open NERDTree if fire Vim only.
+"autocmd vimenter * if !argc() | NERDTree | endif
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+Bundle 'jistr/vim-nerdtree-tabs'
 
-Bundle 'vim-scripts/taglist.vim'
-let Tlist_Enable_Fold_Column = 0
-let Tlist_Compact_Format = 1
-let Tlist_File_Fold_Auto_Close = 1
-let Tlist_GainFocus_On_ToggleOpen = 1
-let Tlist_Use_Right_Window = 1
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Show_One_File = 1
+" TaskList
+"Bundle 'vim-scripts/taglist.vim'
+"let Tlist_Enable_Fold_Column = 0
+"let Tlist_Compact_Format = 1
+"let Tlist_File_Fold_Auto_Close = 1
+"let Tlist_GainFocus_On_ToggleOpen = 1
+"let Tlist_Use_Right_Window = 1
+"let Tlist_Exit_OnlyWindow = 1
+"let Tlist_Show_One_File = 1
 "autocmd vimenter * if !argc() | Tlist | endif
 
+" CtrlP
+Bundle 'kien/ctrlp.vim'
+
+" EasyMotion
+Bundle 'Lokaltog/vim-easymotion'
+" ffb / ffw
+let g:EasyMotion_leader_key = 'ff'
+
+" MRU
 Bundle 'vim-scripts/mru.vim'
-let MRU_Auto_Close = 0
+let MRU_Auto_Close = 0          " Keep MRU window open
 let MRU_Window_Height = 5
-let MRU_Max_Entries = 1000 
+let MRU_Max_Entries = 100 
 let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
+let MRU_Max_Menu_Entries = 20   " Less, faster.
+" Shortcut to MRU window, the bottom-right window.
+noremap ` <c-w><c-b>
 "autocmd vimenter * if !argc() | MRU | endif
 
-" General Editing
+" Error Caught deadly signal SEGV
+"Bundle 'Command-T' 
 
+" SudoEdit
 Bundle 'chrisbra/SudoEdit.vim'
-" In terminal, <c-s> sends the signal SIGSTOP, which was caught by system
-" before vim. 
+" In terminal, <c-s> sends the signal SIGSTOP, which was caught by system before vim. 
 " Workaround: echo "stty -ixon" >> ~/.bashrc
 map <silent> <C-s> :SudoWrite<CR>
 
+" SuperTab
+Bundle 'ervandew/supertab.git'
 Bundle 'vim-scripts/AutoComplPop'
+" Better popup color schema.
+highlight Pmenu ctermfg=white ctermbg=black
+highlight PmenuSel ctermfg=lightred ctermbg=brown
+
+" Surround
 Bundle 'Kris2k/matchit'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
 
-" Coding
-"
+" NerdCommenter
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-fugitive'
+
+" Ruby
+"Bundle 'vim-ruby/vim-ruby'
+
+" Python
+"Bundle "davidhalter/jedi-vim"      " Too slow
+Bundle "Jinja"
+Bundle "python.vim"
+Bundle "indent/python.vim"
+"Bundle "vim-scripts/pydoc.vim"
+
+" JavaScript
+"Bundle 'vim-coffee-script'
+
+" Git
+"Bundle 'tpope/vim-fugitive'
+
 " Need pep8 and flake8 to check python syntax.
 Bundle 'scrooloose/syntastic'
 
@@ -68,44 +130,43 @@ Bundle 'scrooloose/syntastic'
 "Bundle 'mbbill/undotree'
 "nnoremap <F5> :UndotreeToggle<cr>
 
+" Zencoding: HTML
 Bundle 'mattn/zencoding-vim'
 
-Bundle 'dbsr/vimfox'
+"Bundle 'dbsr/vimfox'
 
 " Dev Vim Scripts
 "
-Bundle 'vim-scripts/Decho'
+"Bundle 'vim-scripts/Decho'
 Bundle 'xolox/vim-reload'
+let g:reload_on_write = 0
 
+" Snippets
 " Commented out after install, still figuring... 
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "imwilsonxu/snipmate-snippets"
 
-Bundle 'Jinja'
-Bundle 'TaskList.vim'
-"Bundle 'fholgado/minibufexpl.vim'
-Bundle 'pydoc.vim'
-"Bundle 'supertab'
+"Bundle "TaskList.vim"
+"Bundle "fholgado/minibufexpl.vim"
 
-Bundle 'vim-coffee-script'
-
-" End Vimundle ================================================
+" End Vundle ================================================
 
 filetype plugin indent on     " required!
 
 " Space is bigger that ','
 let mapleader=" "
 
-" Tab
-"
-" Say good bye to tab, though my co-workers must hate me.
 set expandtab
 set autoindent
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
+
+autocmd FileType ruby, javascript autocmd set shiftwidth=2
+autocmd FileType ruby, javascript autocmd set tabstop=2
+autocmd FileType ruby, javascript autocmd set softtabstop=2
 
 set cinwords=if,elif,else,for,while,with,try,except,finally,def,class
 
@@ -130,64 +191,55 @@ set showcmd
 " No noise, pls
 set visualbell
 set noerrorbells
-" Always show the status line
-set laststatus=2
-" Better status line
-set statusline=%<%04n\ %t%(\ %m%r%y[%{&ff}][%{&fenc}]\ \ %{mode()}%)\ %a%=\ col\ %v\ \ line\ %l/%L\ %p%%
-" Make selected item more readable in popup menu, especially using back as
-" bg-color.
-highlight PmenuSel ctermbg=lightgreen gui=bold
 " Trim trailing spaces while formating
 "nnoremap <silent> gg=G gg=G:%s/\s\+$//g<cr>``
 set nofoldenable
 
-" Navigation
-"
-" Do not have to reach first/last line to roll
 "set scrolloff=5
-" More intuitive
+
+" Eclipse style.
 "nnoremap <c-j> <c-y>
 "nnoremap <c-k> <c-e>
-" Tab page navigation
+
+" Switch to tab left/right.
 nnoremap th :tabp<cr>
 nnoremap tl :tabn<cr>
 nnoremap <left> <esc>:tabp<cr>
 nnoremap <right> <esc>:tabn<cr>
 
+" Move current tab left/right.
+nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+
 " Searching
-"
 set hlsearch
 set incsearch
 " smartcase need to turn on ignorecase
 set ignorecase
 set smartcase
 
-" Swap and Backup
-"
-" I hate swap files, so does dropbox.
+" No swap and Backup
 set noswapfile
 set nobackup
 set nowritebackup
 " Write to swap file after 100 keystrokes.
 "set updatecount=100
 
-" Editing
-"
+" Line(s) indent.
 vmap . >
 vmap , <
-"
-" Copy to X CLIPBOARD
-map <silent> <leader>cp :w !xsel -i -p<CR>
-" Paste from X CLIPBOARD
-map <silent> <leader>pp :r!xsel -p<CR>
-"
-nmap <leader>j `. 
+
+set numberwidth=5
+
+" Copy/paste to X CLIPBOARD, "+y" is better.
+"map <silent> <leader>cp :w !xsel -i -p<CR>
+"map <silent> <leader>pp :r!xsel -p<CR>
+
 " Make backspace a more flexible
 set backspace=indent,eol,start
 " Ignore files
 set wildignore=*.dll,*.o,*.obj,*.exe,*.pyc,*.jpg,*.gif,*.png
-" Sweet all the time ...
-" How can I tweak something like &paste ? <no> : []<esc>i
+
 inoremap [] []<esc>i
 inoremap {} {}<esc>i
 inoremap () ()<esc>i
@@ -199,29 +251,28 @@ inoremap `` ``<esc>i
 inoremap ** **<esc>i
 inoremap \|\| \|\|<esc>i
 set pastetoggle=<F3>
-" Return to last file using alt + left-arrow, mimic eclipse.
+
+" Return to last file using alt + left-arrow, eclipse style.
 nnoremap <M-left> :e#<cr>
+
 " more useful tab completion
 set wildmenu
 set wildmode=list:longest
+
 " Save more command history.
 set history=1000
 
-" Coding: php
-"
-" Run in cli
-"autocmd FileType php nnoremap <F9> :!/opt/lampp/bin/php %<cr>
-" Check syntax
-"autocmd FileType php map <F2> :w\|!php -l %<cr>
-" Phpunit
-"autocmd FileType php nnoremap <c-t> :!phpunit %<cr>
-
-" Coding: python
+" Python
 autocmd FileType python map <F2> :w\|!python %<cr>
-autocmd FileType python map <F6> :!nosetests -s ..<cr>
-"autocmd FileType python set smartindent
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+autocmd FileType ruby, python, javascript, css autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
-" Coding: markdown
+" markdown
 "
 autocmd FileType markdown map <F5> :!sundown % > /tmp/md.html<cr>
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -292,10 +343,8 @@ nnoremap <c-k> <c-w>k
 inoremap <c-l> <esc>la
 inoremap <c-h> <esc>i
 " <Esc> is too far away from my fingers.
-"imap jj <esc>
-nmap ` <esc>:noh<cr>:w<cr>
+inoremap <Esc> <Esc>:w<CR>:noh<CR>
 nmap \ <esc>:noh<cr>:w<cr>
-"norema \ :noh<cr>:w<cr><esc>
 " Easy saving.
 imap zz <esc>ZZ
 nmap zz ZZ
@@ -314,26 +363,9 @@ map Q gq
 vmap P p :call setreg('"', getreg('0')) <CR>
 
 " Local config
-if filereadable(".vimrc.local") | source .vimrc.Local |  endif
-
-set numberwidth=5
-
-" http://vim.wikia.com/wiki/Using_tab_pages
-nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
-nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+if filereadable(".vimrc.local") | source .vimrc.Local | endif
 
 set fileencodings=ucs-bom,utf-8,euc-cn,cp936,gb18030,latin1
-
-colorscheme Tomorrow-Night
-
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-
-autocmd FileType python autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 autocmd FileType html map <leader>d <esc>ma%d'a
 
