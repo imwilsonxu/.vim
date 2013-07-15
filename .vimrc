@@ -31,8 +31,19 @@ Bundle "CSApprox"
 "let g:solarized_termcolors=256
 "colorscheme solarized
 colorscheme desert256
+set background=dark
 
-Bundle 'delimitMate.vim'
+"Bundle 'delimitMate.vim'
+inoremap [] []<esc>i
+inoremap {} {}<esc>i
+inoremap () ()<esc>i
+inoremap <> <><esc>i
+inoremap "" ""<esc>i
+inoremap '' ''<esc>i
+inoremap %% %%<esc>i
+inoremap `` ``<esc>i
+inoremap ** **<esc>i
+inoremap \|\| \|\|<esc>i
 
 " Better status line
 Bundle 'Lokaltog/vim-powerline'
@@ -66,6 +77,8 @@ Bundle 'jistr/vim-nerdtree-tabs'
 
 " CtrlP
 Bundle 'kien/ctrlp.vim'
+set wildignore=*.dll,*.o,*.obj,*.exe,*.pyc,*.jpg,*.gif,*.png,*.sqlite
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
 " EasyMotion
 Bundle 'Lokaltog/vim-easymotion'
@@ -237,19 +250,7 @@ set numberwidth=5
 
 " Make backspace a more flexible
 set backspace=indent,eol,start
-" Ignore files
-set wildignore=*.dll,*.o,*.obj,*.exe,*.pyc,*.jpg,*.gif,*.png
 
-inoremap [] []<esc>i
-inoremap {} {}<esc>i
-inoremap () ()<esc>i
-inoremap <> <><esc>i
-inoremap "" ""<esc>i
-inoremap '' ''<esc>i
-inoremap %% %%<esc>i
-inoremap `` ``<esc>i
-inoremap ** **<esc>i
-inoremap \|\| \|\|<esc>i
 set pastetoggle=<F3>
 
 " Return to last file using alt + left-arrow, eclipse style.
