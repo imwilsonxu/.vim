@@ -93,7 +93,7 @@ let MRU_Max_Entries = 100
 let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
 let MRU_Max_Menu_Entries = 20   " Less, faster.
 " Shortcut to MRU window, the bottom-right window.
-noremap ` <c-w><c-b>
+"noremap ` <c-w><c-b>
 "autocmd vimenter * if !argc() | MRU | endif
 
 " Error Caught deadly signal SEGV
@@ -138,6 +138,9 @@ Bundle "indent/python.vim"
 
 " Need pep8 and flake8 to check python syntax.
 Bundle 'scrooloose/syntastic'
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': [],
+                           \ 'passive_filetypes': ['python', 'html', 'javascript', 'css', 'markdown'] }
 
 " https://github.com/mbbill/undotree
 "Bundle 'mbbill/undotree'
