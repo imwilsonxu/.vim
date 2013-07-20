@@ -29,7 +29,6 @@ Bundle "flazz/vim-colorschemes"
 " Make gVim-only color schema looks pretty in console.
 Bundle "CSApprox"
 "let g:solarized_termcolors=256
-"colorscheme solarized
 colorscheme desert256
 set background=dark
 
@@ -106,10 +105,12 @@ Bundle 'chrisbra/SudoEdit.vim'
 map <silent> <C-s> :SudoWrite<CR>
 
 " SuperTab
-Bundle 'ervandew/supertab.git'
+"Bundle 'ervandew/supertab.git'
+" Better than supertab.
+imap <tab> <c-n>
 Bundle 'vim-scripts/AutoComplPop'
 " Better popup color schema.
-highlight Pmenu ctermfg=white ctermbg=black
+highlight Pmenu ctermfg=black ctermbg=gray
 highlight PmenuSel ctermfg=lightred ctermbg=brown
 
 " Surround
@@ -179,12 +180,16 @@ set autoindent
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
+autocmd BufRead, BufNewFile *.rb, *.html set shiftwidth=2
 
-autocmd FileType ruby, javascript autocmd set shiftwidth=2
-autocmd FileType ruby, javascript autocmd set tabstop=2
-autocmd FileType ruby, javascript autocmd set softtabstop=2
-
+set autoindent
+set smartindent
+" These keywords start an extra indent in the next line when 'smartindent' or 'cindent' is set.
 set cinwords=if,elif,else,for,while,with,try,except,finally,def,class
+"au BufEnter,BufRead *.py setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+
+" Set visual cue for folding. 
+"set foldcolumn=5
 
 " Display
 "
@@ -274,7 +279,7 @@ fun! <SID>StripTrailingWhitespaces()
     %s/\s\+$//e
     call cursor(l, c)
 endfun
-autocmd FileType ruby, python, javascript, css autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+"autocmd BufWritePre *.rb, *.py, *.js, *.css <buffer> :call <SID>StripTrailingWhitespaces()
 
 " markdown
 "
