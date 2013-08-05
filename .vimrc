@@ -25,12 +25,11 @@ Bundle "gmarik/vundle"
 Bundle "acx0/Conque-Shell"
 
 " Colorschema
-Bundle "flazz/vim-colorschemes"
+"Bundle 'flazz/vim-colorschemes'
 " Make gVim-only color schema looks pretty in console.
-Bundle "CSApprox"
+"Bundle 'CSApprox'
 "let g:solarized_termcolors=256
-colorscheme desert256
-set background=dark
+"set background=dark
 
 "Bundle 'delimitMate.vim'
 inoremap [] []<esc>i
@@ -50,7 +49,7 @@ set laststatus=2
 set encoding=utf-8
 " Play nice with command line.
 set t_Co=256
-let g:Powerline_colorscheme = "solarized256"
+"let g:Powerline_colorscheme = "solarized256"
 
 " NERDTree
 Bundle 'scrooloose/nerdtree'
@@ -80,9 +79,9 @@ set wildignore=*.dll,*.o,*.obj,*.exe,*.pyc,*.jpg,*.gif,*.png,*.sqlite
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
 " EasyMotion
-Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'Lokaltog/vim-easymotion'
 " ffb / ffw
-let g:EasyMotion_leader_key = 'ff'
+"let g:EasyMotion_leader_key = 'ff'
 
 " MRU
 Bundle 'vim-scripts/mru.vim'
@@ -107,11 +106,11 @@ map <silent> <C-s> :SudoWrite<CR>
 " SuperTab
 "Bundle 'ervandew/supertab.git'
 " Better than supertab.
-imap <tab> <c-n>
+"imap <tab> <c-n>
 Bundle 'vim-scripts/AutoComplPop'
 " Better popup color schema.
-highlight Pmenu ctermfg=black ctermbg=gray
-highlight PmenuSel ctermfg=lightred ctermbg=brown
+"highlight Pmenu ctermfg=black ctermbg=gray
+"highlight PmenuSel ctermfg=lightred ctermbg=brown
 
 " Surround
 Bundle 'Kris2k/matchit'
@@ -185,8 +184,7 @@ autocmd BufRead, BufNewFile *.rb, *.html set shiftwidth=2
 set autoindent
 set smartindent
 " These keywords start an extra indent in the next line when 'smartindent' or 'cindent' is set.
-set cinwords=if,elif,else,for,while,with,try,except,finally,def,class
-"au BufEnter,BufRead *.py setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+"set cinwords=if,elif,else,for,while,with,try,except,finally,def,class
 
 " Set visual cue for folding. 
 "set foldcolumn=5
@@ -238,6 +236,15 @@ set incsearch
 " smartcase need to turn on ignorecase
 set ignorecase
 set smartcase
+" Search for selected text, forwards or backwards.
+vnoremap <silent> * :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy/<C-R><C-R>=substitute(escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+  \gvy?<C-R><C-R>=substitute(escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+  \gV:call setreg('"', old_reg, old_regtype)<CR>
 
 " No swap and Backup
 set noswapfile
@@ -378,5 +385,4 @@ set fileencodings=ucs-bom,utf-8,euc-cn,cp936,gb18030,latin1
 
 autocmd FileType html map <leader>d <esc>ma%d'a
 
-" Delete what matched last search
-nnoremap <leader>d :%s///g
+colorscheme Tomorrow-Night
