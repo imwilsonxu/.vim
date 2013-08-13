@@ -25,9 +25,10 @@ Bundle "gmarik/vundle"
 Bundle "acx0/Conque-Shell"
 
 " Colorschema
-"Bundle 'flazz/vim-colorschemes'
+Bundle 'flazz/vim-colorschemes'
 " Make gVim-only color schema looks pretty in console.
-"Bundle 'CSApprox'
+Bundle 'CSApprox'
+colorscheme desert
 "let g:solarized_termcolors=256
 "set background=dark
 
@@ -298,11 +299,6 @@ au BufRead,BufNewFile *.md set filetype=markdown
 " Format bookmarklet codes.
 autocmd FileType javascript nnoremap <F9> :g/^\s*\/\//d<cr>:%s/\v\s+/%20/g<cr>:%s/\n//g<cr>:%s/"/\&quot;/g<cr>:%s/\(.*\)/<a href="javascript:\1">test<\/a>/g<cr>:noh<cr>
 
-" Coding: ruby
-"
-"autocmd FileType ruby map <F2> :w\|!ruby %<cr>
-autocmd FileType ruby map <F2> :w\|!ruby %<cr>
-
 " Coding: json
 " format json.
 "nnoremap <f5> :%!python -m json.tool<CR>:w<CR>
@@ -311,8 +307,6 @@ autocmd FileType ruby map <F2> :w\|!ruby %<cr>
 "
 ab dont' don't
 ab inconveneice inconveniece
-ab pythong python
-ab Pythong Python
 ab slef self
 ab sefl self
 ab contetn content
@@ -385,4 +379,4 @@ set fileencodings=ucs-bom,utf-8,euc-cn,cp936,gb18030,latin1
 
 autocmd FileType html map <leader>d <esc>ma%d'a
 
-colorscheme Tomorrow-Night
+"colorscheme Tomorrow-Night
