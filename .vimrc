@@ -155,6 +155,7 @@ Bundle 'mattn/zencoding-vim'
 " Dev Vim Scripts
 "
 "Bundle 'vim-scripts/Decho'
+Bundle 'vim-misc'
 Bundle 'xolox/vim-reload'
 let g:reload_on_write = 0
 
