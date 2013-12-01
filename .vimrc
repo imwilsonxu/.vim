@@ -172,6 +172,7 @@ Bundle "imwilsonxu/snipmate-snippets"
 " End Vundle ================================================
 
 filetype plugin indent on     " required!
+syntax on
 
 " Space is bigger that ','
 let mapleader=" "
