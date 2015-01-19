@@ -26,3 +26,6 @@ vim-surround
 vundle
 zencoding-vim
 vim-misc
+python-syntax
+vim-colors-solarized
+vim-jinja

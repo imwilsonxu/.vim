@@ -1,16 +1,12 @@
 # .vim
 
-A Vimer since 2009.
+My .vim folder since 2009.
 
 ## Install
 
-    # Goto Home.
     cd
-    # Setup .vim
     git clone https://github.com/imwilsonxu/.vim
-    # link .vimrc to home.
     ln -s ~/.vim/.vimrc ~/.vimrc
-    # Setup vundle
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
     # Open Vim and Install plugins.
     vim
@@ -18,35 +14,35 @@ A Vimer since 2009.
 
 ## Plugins
 
-### Manage Plugins
+### General
 
 - gmarik/vundle
-
-###  Windows
-
 - scrooloose/nerdtree
-- vim-scripts/taglist.vim
-- vim-scripts/mru.vim
-
-###  General Editing
-
+- jistr/vim-nerdtree-tabs
 - chrisbra/SudoEdit.vim
 - vim-scripts/AutoComplPop
 - Kris2k/matchit
 - tpope/vim-surround
 - tpope/vim-repeat
+- kien/ctrlp.vim
+- altercation/vim-colors-solarized
+- Lokaltog/vim-powerline
 
-###  Coding
+### Programming
 
 - scrooloose/nerdcommenter
-- vim-ruby/vim-ruby
-- tpope/vim-fugitive
 - scrooloose/syntastic
-- mbbill/undotree
+- Python
+    - mitsuhiko/vim-jinja
+    - hdima/python-syntax
+- vim-ruby/vim-ruby
+
+### Deprecated
+
+- vim-scripts/taglist.vim
+- vim-scripts/mru.vim
+- tpope/vim-fugitive
 - mattn/zencoding-vim
-- imwilsonxu/snipmate.vim
-
-###  Dev Vim Scripts
-
+- mbbill/undotree
 - vim-scripts/Decho
 - xolox/vim-reload

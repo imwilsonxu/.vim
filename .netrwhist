@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/wilson/dev/fabuniao/tmp'
 let g:netrw_dirhist_2='/home/wilson/website/.git'
 let g:netrw_dirhist_3='/home/wilson/tea/public'
@@ -7,3 +7,4 @@ let g:netrw_dirhist_4='/var/log/apache2'
 let g:netrw_dirhist_5='/home/wilson/src/weibo_2/lib/weibo_2/api/v2'
 let g:netrw_dirhist_6='/home/wilson/.vim/bundle/vim-ruby/.git'
 let g:netrw_dirhist_7='/home/wilson/freeminds'
+let g:netrw_dirhist_8='/Users/wilson/.vim/autoload'
