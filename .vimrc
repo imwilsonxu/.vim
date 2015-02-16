@@ -89,7 +89,7 @@ Bundle "hdima/python-syntax"
 Bundle 'scrooloose/syntastic'
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['python', 'html', 'javascript', 'css', 'markdown'] }
+                           \ 'passive_filetypes': ['python', 'html', 'javascript', 'css', 'md', 'markdown'] }
 "fun! <SID>StripTrailingWhitespaces()
     "let l = line(".")
     "let c = col(".")
@@ -98,6 +98,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
 "endfun
 "autocmd BufWritePre *.rb, *.py, *.js, *.css <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd BufWritePre *.py :%s/\s\+$//e
+
+Bundle "mattn/emmet-vim"
 
 " End Vundle ================================================
 
@@ -238,7 +240,7 @@ ab cloen clone
 
 " My favorites
 "
-nnoremap <space><space> :tabe
+nnoremap <space><space> :tabe 
 " enhance default gf: open file in a new tab
 nnoremap gf :tabe <cfile><cr>
 " enhance default gd: without jumping around
