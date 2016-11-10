@@ -198,6 +198,7 @@ Plugin 'mattn/emmet-vim'
 " Extended session management for Vim
 " https://github.com/xolox/vim-session
 "
+Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
 let g:session_autosave = 'yes'
 let g:session_autoload = 'no'
