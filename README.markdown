@@ -9,16 +9,13 @@ My .vim folder since 2009.
 
 ## Files
 
-`vimrcs/*.vim`
-
-* vundle.vim: setup vim plugins via vundle.vim, must be top of .vimrc.
-* basic.vim: basic config.
-* filetypes.vim: for diff files, such as python, ruby, etc.
-* typos.vim: for typos.
-
-`bundle`
-
-* bundle/.gitignore: ignore new plugins in repos.
+* vimrcs
+    * vundle.vim: setup vim plugins via vundle.vim, must be top of .vimrc.
+    * basic.vim: basic config.
+    * filetypes.vim: for files such as python, ruby, etc.
+    * typos.vim: for typos.
+* bundle
+    * .gitignore: ignore new plugins in repos.
 
 ## Plugins
 
