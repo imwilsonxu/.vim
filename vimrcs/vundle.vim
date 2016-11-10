@@ -191,6 +191,12 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 Plugin 'mattn/emmet-vim'
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Git
+"
+Plugin 'airblade/vim-gitgutter'
+
+
 " Plugin 'xolox/vim-misc'
 
 
