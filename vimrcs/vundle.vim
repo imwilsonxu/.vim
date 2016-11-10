@@ -230,6 +230,8 @@ Plugin 'mattn/emmet-vim'
 
 Plugin 'Yggdroot/indentLine'
 
+Plugin 'bronson/vim-trailing-whitespace'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Git
 "

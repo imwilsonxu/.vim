@@ -41,6 +41,7 @@ My .vimrc and .vim directory since 2009.
     * Raimondi/delimitMate
     * mattn/emmet-vim
 	* Yggdroot/indentLine
+    * bronson/vim-trailing-whitespace
 * Git
     * tpope/vim-fugitive
     * airblade/vim-gitgutter
