@@ -17,15 +17,18 @@ if [ ! -d "$AUTOLOAD_PATH" ]; then
 fi
 curl -LSso "$AUTOLOAD_PATH"/pathogen.vim https://tpo.pe/pathogen.vim
 
-VUNDLE_PATH="$VIM_PATH/bundle"
-if [ ! -d "$VUNDLE_PATH"/vundle ]; then
-    git clone https://github.com/VundleVim/Vundle.vim.git "$VUNDLE_PATH"/vundle
+BUNDLE_PATH="$VIM_PATH/bundle"
+if [ ! -d "$BUNDLE_PATH" ]; then
+    mkdir -p "$BUNDLE_PATH"
 fi
-
-if [ -d "$VUNDLE_PATH"/vundle/YouCompleteMe ]; then
-    sh "$VUNDLE_PATH"/vundle/YouCompleteMe/install.sh --all
+if [ ! -d "$BUNDLE_PATH"/vundle ]; then
+    git clone https://github.com/VundleVim/Vundle.vim.git "$BUNDLE_PATH"/vundle
 fi
 
 vim +PluginInstall +qall
+
+if [ -d "$BUNDLE_PATH"/vundle/YouCompleteMe ]; then
+    sh "$BUNDLE_PATH"/vundle/YouCompleteMe/install.sh --all
+fi
 
 echo "Done!"
