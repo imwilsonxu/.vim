@@ -19,19 +19,44 @@ My .vim folder since 2009.
 
 ## Plugins
 
-* tpope/vim-pathogen
-* altercation/vim-colors-solarized
-* itchyny/lightline.vim
-* scrooloose/nerdtree
-* jistr/vim-nerdtree-tabs
-* scrooloose/nerdcommenter
-* ctrlpvim/ctrlp.vim
-* chrisbra/SudoEdit.vim
-* Valloric/YouCompleteMe
-* Kris2k/matchit
-* tpope/vim-surround
-* tpope/vim-repeat
-* xu-cheng/brew.vim
-* mitsuhiko/vim-jinja
-* hdima/python-syntax
-* klen/python-mode
+* UI
+    * altercation/vim-colors-solarized
+    * scrooloose/nerdtree
+    * jistr/vim-nerdtree-tabs
+    * itchyny/lightline.vim
+* Edit
+    * Kris2k/matchit
+    * tpope/vim-surround
+    * tpope/vim-repeat
+    * Valloric/YouCompleteMe
+    * chrisbra/SudoEdit.vim
+    * ctrlpvim/ctrlp.vim
+    * tpope/vim-markdown
+* General programming
+    * scrooloose/syntastic
+    * scrooloose/nerdcommenter
+    * majutsushi/tagbar
+    * Raimondi/delimitMate
+    * mattn/emmet-vim
+    * nathanaelkane/vim-indent-guides
+* Git
+    * tpope/vim-fugitive
+    * airblade/vim-gitgutter
+* HTML
+    * othree/html5.vim
+    * elzr/vim-json
+* Python
+    * klen/python-mode
+    * hdima/python-syntax
+    * mitsuhiko/vim-jinja
+    * davidhalter/jedi-vim
+* Javascript
+    * pangloss/vim-javascript
+    * kchmck/vim-coffee-script
+* Ruby
+    * vim-ruby/vim-ruby
+    * tpope/vim-rails
+    * tpope/vim-endwise
+* Others
+    * xu-cheng/brew.vim
+    * tpope/vim-pathogen

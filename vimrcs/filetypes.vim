@@ -23,13 +23,6 @@ au FileType python set indentkeys-=0#
 
 
 """"""""""""""""""""""""""""""
-" Markdown
-""""""""""""""""""""""""""""""
-
-" au BufRead,BufNewFile *.md set filetype=markdown
-
-
-""""""""""""""""""""""""""""""
 " JavaScript
 """""""""""""""""""""""""""""""
 au FileType javascript call JavaScriptFold()

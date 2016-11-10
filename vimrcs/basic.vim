@@ -246,17 +246,6 @@ vmap , <
 """"""""""""""""""""""""""""""
 " Insert mode related
 """"""""""""""""""""""""""""""
-inoremap [] []<esc>i
-inoremap {} {}<esc>i
-inoremap () ()<esc>i
-inoremap <> <><esc>i
-inoremap "" ""<esc>i
-inoremap '' ''<esc>i
-inoremap %% %%<esc>i
-inoremap `` ``<esc>i
-inoremap ** **<esc>i
-inoremap \|\| \|\|<esc>i
-
 " Move cursor in insert mode.
 inoremap <c-l> <esc>la
 inoremap <c-h> <esc>i
