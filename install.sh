@@ -22,6 +22,10 @@ if [ ! -d "$VUNDLE_PATH"/vundle ]; then
     git clone https://github.com/VundleVim/Vundle.vim.git "$VUNDLE_PATH"/vundle
 fi
 
+if [ -d "$VUNDLE_PATH"/vundle/YouCompleteMe ]; then
+    sh "$VUNDLE_PATH"/vundle/YouCompleteMe/install.sh --all
+fi
+
 vim +PluginInstall +qall
 
 echo "Done!"

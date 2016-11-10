@@ -13,8 +13,8 @@ set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
+let mapleader = " "
+let g:mapleader = " "
 
 " Fast saving
 nmap <leader>w :w!<cr>
@@ -26,7 +26,7 @@ command W w !sudo tee % > /dev/null
 " Return to last file using alt + left-arrow, eclipse style.
 nnoremap <M-left> :e#<cr>
 
-nnoremap <space><space> :tabe
+nnoremap <space><space> :tabe 
 " enhance default gf: open file in a new tab
 nnoremap gf :tabe <cfile><cr>
 " enhance default gd: without jumping around
@@ -91,7 +91,6 @@ set ruler
 
 set nowrap
 set number
-set numberwidth=5
 set title
 set showcmd
 set nofoldenable

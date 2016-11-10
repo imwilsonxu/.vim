@@ -8,6 +8,7 @@ brew.vim
 ctrlp.vim
 delimitMate.vim
 emmet-vim
+lightline.vim
 matchit
 mru.vim
 nerdcommenter
@@ -33,4 +34,5 @@ vim-session
 vim-snipmate
 vim-surround
 vundle
+YouCompleteMe
 zencoding-vim
