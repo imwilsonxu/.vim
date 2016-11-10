@@ -29,8 +29,10 @@ My .vimrc and .vim directory since 2009.
     * tpope/vim-surround
     * tpope/vim-repeat
     * vim-scripts/AutoComplPop
+    * Shougo/neocomplcache.vim
     * chrisbra/SudoEdit.vim
     * ctrlpvim/ctrlp.vim
+    * mileszs/ack.vim
     * tpope/vim-markdown
 * General programming
     * scrooloose/syntastic
@@ -38,7 +40,7 @@ My .vimrc and .vim directory since 2009.
     * majutsushi/tagbar
     * Raimondi/delimitMate
     * mattn/emmet-vim
-    * nathanaelkane/vim-indent-guides
+	* Yggdroot/indentLine
 * Git
     * tpope/vim-fugitive
     * airblade/vim-gitgutter
@@ -60,3 +62,5 @@ My .vimrc and .vim directory since 2009.
 * Others
     * xu-cheng/brew.vim
     * tpope/vim-pathogen
+    * xolox/vim-misc
+    * xolox/vim-session
