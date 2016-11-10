@@ -1,6 +1,6 @@
 # .vim
 
-My .vim folder since 2009.
+My .vimrc and .vim directory since 2009.
 
 ## Install
 
@@ -28,7 +28,7 @@ My .vim folder since 2009.
     * Kris2k/matchit
     * tpope/vim-surround
     * tpope/vim-repeat
-    * Valloric/YouCompleteMe
+    * vim-scripts/AutoComplPop
     * chrisbra/SudoEdit.vim
     * ctrlpvim/ctrlp.vim
     * tpope/vim-markdown

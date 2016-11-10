@@ -68,8 +68,8 @@ Plugin 'Kris2k/matchit'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 
-" Plugin 'vim-scripts/AutoComplPop'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-scripts/AutoComplPop'
 
 Plugin 'chrisbra/SudoEdit.vim'
 " In terminal, <c-s> sends the signal SIGSTOP, which was caught by system before vim.
