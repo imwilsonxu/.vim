@@ -1,8 +1,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General
 
-" Sets how many lines of history VIM has to remember
 set history=1000
+set tabpagemax=50
 
 " Enable filetype plugins
 filetype plugin on
@@ -22,7 +22,7 @@ vnoremap ; :
 " Open, save and quit file
 nnoremap <Space><Space> :tabe 
 nnoremap gf :tabe <cfile><cr>
-nmap <esc> <esc>:noh<cr>:w!<cr>
+nnoremap <CR> :noh<CR><CR>
 imap zz <esc>ZZ
 nmap zz ZZ
 " Save as sudo
@@ -86,8 +86,8 @@ endtry
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI
 
-" Set 7 lines to the cursor - when moving vertically using j/k
-set so=7
+" Set 5 lines to the cursor - when moving vertically using j/k
+set so=5
 
 " Show cursorline to indicate insert mode.
 " See also guicursor
@@ -128,6 +128,7 @@ syntax enable
 if has("gui_running")
     set guioptions-=T
     set guioptions-=e
+	" Allow color schemes to do bright colors without forcing bold.
     set t_Co=256
     set guitablabel=%M\ %t
 endif
@@ -204,6 +205,10 @@ set noswapfile
 " Use spaces instead of tabs
 set expandtab
 set autoindent
+set complete-=i
+set smartindent
+
+set nrformats-=octal
 
 " Be smart when using tabs ;)
 set smarttab
@@ -216,9 +221,6 @@ set softtabstop=4
 " Linebreak on 500 characters
 set lbr
 set tw=500
-
-set autoindent
-set smartindent
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
