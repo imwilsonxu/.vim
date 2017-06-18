@@ -26,11 +26,12 @@ endif
 colorscheme solarized
 
 Plugin 'scrooloose/nerdtree'
+" Show bookmarks by default.
 let NERDTreeShowBookmarks=1
+" Change the current working directory.
 let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\.pyc$', '\.o$', '\~$']
-map <leader>nb :NERDTreeFromBookmark
-map <leader>nf :NERDTreeFind<cr>
+map tt :NERDTreeToggle<CR>
 
 Plugin 'jistr/vim-nerdtree-tabs'
 
@@ -65,8 +66,8 @@ let g:lightline = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Edit
 "
-"Plugin 'jlanzarotta/bufexplorer'
-Plugin 'Kris2k/matchit'
+
+Plugin 'vim-scripts/matchit.zip'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 
@@ -172,6 +173,8 @@ let g:ctrlp_cmd = 'CtrlP'
 map <leader>j :CtrlP<cr>
 map <c-b> :CtrlPBuffer<cr>
 let g:ctrlp_max_height = 20
+let g:ctrlp_open_new_file = 't'
+let g:ctrlp_open_multiple_files = 't'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee|\v[\/]\.(git|hg|svn)$'
@@ -249,10 +252,12 @@ Plugin 'elzr/vim-json'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python
 "
-Plugin 'klen/python-mode'
+"Plugin 'klen/python-mode'
+"let g:pymode_lint = 1
 Plugin 'hdima/python-syntax'
 Plugin 'mitsuhiko/vim-jinja'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'tmhedberg/SimpylFold'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

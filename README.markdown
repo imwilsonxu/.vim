@@ -25,7 +25,7 @@ My .vimrc and .vim directory since 2009.
     * jistr/vim-nerdtree-tabs
     * itchyny/lightline.vim
 * Edit
-    * Kris2k/matchit
+    * vim-scripts/matchit.zip
     * tpope/vim-surround
     * tpope/vim-repeat
     * vim-scripts/AutoComplPop

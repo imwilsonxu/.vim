@@ -22,7 +22,7 @@ vnoremap ; :
 " Open, save and quit file
 nnoremap <Space><Space> :tabe 
 nnoremap gf :tabe <cfile><cr>
-nnoremap <CR> :noh<CR><CR>
+nnoremap <CR> :noh<CR>:w<CR>
 imap zz <esc>ZZ
 nmap zz ZZ
 " Save as sudo
@@ -137,7 +137,7 @@ endif
 set encoding=utf8
 
 " Use Unix as the standard file type
-set ffs=unix,dos,mac
+"set ffs=unix,dos,mac
 
 " Configure backspace so it acts as it should act
 set backspace=eol,start,indent
