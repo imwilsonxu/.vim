@@ -11,6 +11,16 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
+" With a map leader it's possible to do extra key combinations
+" like <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
+
+" Fast saving
+nmap <leader>w :w!<cr>
+" Save as sudo
+command W w !sudo tee % > /dev/null
+
 nnoremap ; :
 vnoremap ; :
 
@@ -20,8 +30,6 @@ nnoremap gf :tabe <cfile><cr>
 nnoremap <CR> :noh<CR>:w<CR>
 imap zz <esc>ZZ
 nmap zz ZZ
-" Save as sudo
-command W w !sudo tee % > /dev/null
 
 " Move in lines
 nnoremap gh ^
