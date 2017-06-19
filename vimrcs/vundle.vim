@@ -1,5 +1,3 @@
-" Com'on, it's 21 century now.
-" be iMproved, required
 set nocompatible
 filetype off
 
@@ -25,6 +23,7 @@ else
 endif
 colorscheme solarized
 
+
 Plugin 'scrooloose/nerdtree'
 " Show bookmarks by default.
 let NERDTreeShowBookmarks=1
@@ -33,7 +32,9 @@ let NERDTreeChDirMode=2
 let NERDTreeIgnore=['\.pyc$', '\.o$', '\~$']
 map tt :NERDTreeToggle<CR>
 
+
 Plugin 'jistr/vim-nerdtree-tabs'
+
 
 Plugin 'itchyny/lightline.vim'
 set laststatus=2
@@ -61,7 +62,6 @@ let g:lightline = {
       \ 'subseparator': { 'left': ' ', 'right': ' ' }
       \ }
 
-"Plugin 'myusuf3/numbers.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Edit
@@ -71,8 +71,6 @@ Plugin 'vim-scripts/matchit.zip'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 
-"Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-scripts/AutoComplPop'
 Plugin 'Shougo/neocomplcache.vim'
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -164,9 +162,6 @@ let g:neocomplcache_force_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\
 let g:neocomplcache_force_omni_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 
-" Plugin 'chrisbra/SudoEdit.vim'
-" Use: !sudo tee % > /dev/null
-
 Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_cmd = 'CtrlP'
@@ -181,21 +176,9 @@ let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee|\v[\/]
 " Ignore files in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-Plugin 'mileszs/ack.vim'
-let g:ackprg = 'ag --nogroup --nocolor --column'
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-"command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Ag<SPACE>
 
-Plugin 'tpope/vim-markdown'
+Plugin 'mileszs/ack.vim'
+nnoremap <Leader>a :Ack<Space>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -213,32 +196,37 @@ let g:syntastic_mode_map = {
     \ 'mode': 'active',
     \ 'active_filetypes': [],
     \ 'passive_filetypes': ['python', 'html', 'javascript', 'css', 'md', 'markdown'] }
-"fun! <SID>StripTrailingWhitespaces()
-    "let l = line(".")
-    "let c = col(".")
-    "%s/\s\+$//e
-    "call cursor(l, c)
-"endfun
-"autocmd BufWritePre *.rb, *.py, *.js, *.css <buffer> :call <SID>StripTrailingWhitespaces()
 autocmd BufWritePre *.py :%s/\s\+$//e
 
+
+" http://vimawesome.com/plugin/the-nerd-commenter
 Plugin 'scrooloose/nerdcommenter'
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
-Plugin 'majutsushi/tagbar'
 
 Plugin 'Raimondi/delimitMate'
 
-Plugin 'mattn/emmet-vim'
-
-Plugin 'Yggdroot/indentLine'
-
 Plugin 'bronson/vim-trailing-whitespace'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Git
 "
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
+" shows a git diff in the 'gutter' (sign column)
 Plugin 'airblade/vim-gitgutter'
 
 

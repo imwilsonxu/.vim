@@ -13,7 +13,7 @@ My .vimrc and .vim directory since 2009.
     * vundle.vim: setup vim plugins via vundle.vim, must be top of .vimrc.
     * basic.vim: basic config.
     * filetypes.vim: for files such as python, ruby, etc.
-    * typos.vim: for typos.
+    * typos.vim.
 * bundle
     * .gitignore: ignore new plugins in repos.
 
@@ -28,22 +28,15 @@ My .vimrc and .vim directory since 2009.
     * vim-scripts/matchit.zip
     * tpope/vim-surround
     * tpope/vim-repeat
-    * vim-scripts/AutoComplPop
     * Shougo/neocomplcache.vim
-    * chrisbra/SudoEdit.vim
     * ctrlpvim/ctrlp.vim
     * mileszs/ack.vim
-    * tpope/vim-markdown
 * General programming
     * scrooloose/syntastic
     * scrooloose/nerdcommenter
-    * majutsushi/tagbar
     * Raimondi/delimitMate
-    * mattn/emmet-vim
-	* Yggdroot/indentLine
     * bronson/vim-trailing-whitespace
 * Git
-    * tpope/vim-fugitive
     * airblade/vim-gitgutter
 * HTML
     * othree/html5.vim
