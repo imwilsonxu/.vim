@@ -40,7 +40,6 @@ My .vimrc and .vim directory since 2009.
     * airblade/vim-gitgutter
 * HTML
     * othree/html5.vim
-    * elzr/vim-json
 * Python
     * klen/python-mode
     * hdima/python-syntax
@@ -54,7 +53,6 @@ My .vimrc and .vim directory since 2009.
     * tpope/vim-rails
     * tpope/vim-endwise
 * Others
-    * xu-cheng/brew.vim
     * tpope/vim-pathogen
     * xolox/vim-misc
     * xolox/vim-session

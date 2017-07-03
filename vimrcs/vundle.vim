@@ -234,7 +234,6 @@ Plugin 'airblade/vim-gitgutter'
 " HTML
 "
 Plugin 'othree/html5.vim'
-Plugin 'elzr/vim-json'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -244,7 +243,7 @@ Plugin 'elzr/vim-json'
 "let g:pymode_lint = 1
 Plugin 'hdima/python-syntax'
 Plugin 'mitsuhiko/vim-jinja'
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'tmhedberg/SimpylFold'
 
 
