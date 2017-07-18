@@ -244,7 +244,6 @@ Plugin 'othree/html5.vim'
 Plugin 'hdima/python-syntax'
 Plugin 'mitsuhiko/vim-jinja'
 "Plugin 'davidhalter/jedi-vim'
-Plugin 'tmhedberg/SimpylFold'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
