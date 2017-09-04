@@ -52,6 +52,9 @@ My .vimrc and .vim directory since 2009.
     * vim-ruby/vim-ruby
     * tpope/vim-rails
     * tpope/vim-endwise
+* Markdown
+    * godlygeek/tabular
+    * plasticboy/vim-markdown
 * Others
     * tpope/vim-pathogen
     * xolox/vim-misc
